@@ -13,7 +13,7 @@ $ rnpm link rn-umeng
 
 The api mapping below
 
-React Native Silde        | iOS Silde           | Android Silde   
+React Native Side        | iOS Side           | Android Side   
 --------------------------|---------------------|-----------------------
 startWithAppkey(string)   | startWithAppkey(NSString)   | coming soon   
 setDebugMode(bool)        | setLogEnabled(BOOL)         | coming soon   
