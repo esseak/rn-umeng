@@ -27,7 +27,7 @@ onPageEnd(string)      | onPageEnd:(NSString *)pageName           | coming soon
 getDeviceInfo      | getDeviceInfo           | coming soon
 
 # Changelog
-- ### 1.0.1
+### - 1.0.2
  - Project initialization
 
 # License
