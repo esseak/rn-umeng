@@ -1,0 +1,15 @@
+{
+  "name": "rn-umeng",
+  "version": "1.0.1",
+  "description": "RN-Umeng",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "react native",
+    "umeng"
+  ],
+  "author": "mike",
+  "license": "MIT"
+}
