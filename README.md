@@ -1,12 +1,46 @@
 # React Native Umeng
 
-A Umeng lib for React Native (current iOS only,Android coming soon)
+A Umeng lib for React Native
 
-# Install
+# iOS Install
 
 ```bash
 $ npm install --save rn-umeng
 $ rnpm link rn-umeng
+```
+
+# Android Install (Manual)
+
+```bash
+$ npm install --save rn-umeng
+```
+
+#### Add Gradle Module Manualy
+
+![image](https://raw.githubusercontent.com/esseak/rn-umeng/master/screenshots/screenshot0.png)
+
+![image](https://raw.githubusercontent.com/esseak/rn-umeng/master/screenshots/screenshot1.png)
+
+#### Add UmengPackage
+
+```java
+ReactInstanceManager.builder() ...
+.addPackage(new UmengPackage())
+```
+
+#### onResume and onPause
+```java
+@Override
+protected void onResume() {
+	super.onResume();
+	MobclickAgent.onResume(this);
+}
+
+@Override
+protected void onPause() {
+	super.onPause();
+	MobclickAgent.onPause(this);
+}
 ```
 
 # Usage
@@ -15,18 +49,42 @@ The api mapping below
 
 React Native Side        | iOS Side           | Android Side   
 --------------------------|---------------------|-----------------------
-startWithAppkey(string)   | startWithAppkey(NSString)   | coming soon   
-setDebugMode(bool)        | setLogEnabled(BOOL)         | coming soon   
-enableEncrypt(boole)      | setEncryptEnabled(BOOL)          | coming soon   
-setCrashReportEnabled(boole)      | setCrashReportEnabled(BOOL)           | coming soon
-onEvent(string)      |event:(NSString *)eventId           | coming soon
-onEvent(string,{key:"value"})      | onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes           | coming soon
-onEvent(string,{key:"value"},0)    | onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes counter:(NSString *)counter           | coming soon
-onPageStart(string)      | onPageStart:(NSString *)pageName           | coming soon
-onPageEnd(string)      | onPageEnd:(NSString *)pageName           | coming soon
-getDeviceInfo      | getDeviceInfo           | coming soon
+startWithAppkey(string)   | startWithAppkey(NSString)   | AnalyticsConfig.setAppkey(String appkey)   
+setDebugMode(bool)        | setLogEnabled(BOOL)         | MobclickAgent.setDebugMode( true )  
+enableEncrypt(boole)      | setEncryptEnabled(BOOL)          | AnalyticsConfig.enableEncrypt(boolean enable)   
+setCrashReportEnabled(boole)      | setCrashReportEnabled(BOOL)           | MobclickAgent.setCatchUncaughtExceptions(false)
+onEvent(string)      |event:(NSString *)eventId           | MobclickAgent.onEvent(Context context, String eventId)
+onEvent(string,{key:"value"})      | onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes           | MobclickAgent.onEvent(Context context, String eventId, HashMap map)
+onEvent(string,{key:"value"},0)    | onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes counter:(NSString *)counter           | MobclickAgent.onEventValue(Context context, String id, Map<String,String> m, int du)
+onProfileSignIn('ID')      | profileSignInWithPUID:(NSString *)puid           | onProfileSignIn(String ID)
+onProfileSignIn('ID','Provider')      | profileSignInWithPUID:(NSString *)puid provider:(NSString *)provider           | onProfileSignIn(String Provider, String ID)
+onProfileSignOff()      | profileSignOff           | onProfileSignOff()
+onPageStart(string)      | beginLogPageView:(NSString *)pageName           | MobclickAgent.onPageStart(String pageName)
+onPageEnd(string)      | endLogPageView:(NSString *)pageName           | MobclickAgent.onPageEnd(String pageName)
+onLogPageViewInseconds('pageName',10)      | logPageView:pageName seconds:seconds          | N/A
+openActivityDurationTrack(boole)      |  N/A           | MobclickAgent.openActivityDurationTrack(boolean value)
+onResume()      | N/A           | MobclickAgent.onResume()
+onPause()      | N/A            | MobclickAgent.onPause()
+getDeviceInfo((infoStr)=>{})      | getDeviceInfo           | getDeviceInfo
+
+In your project code
+
+```javascript
+import MobclickAgent from 'rn-umeng';
+MobclickAgent.startWithAppkey('your appkey');
+MobclickAgent.setDebugMode(true);
+MobclickAgent.onEvent("testEvent");
+```
+
 
 # Changelog
+
+### - 1.0.3
+
+ - add Android lib (but Manually,rnpm link not works,fix later)
+ - update readme.md
+
+ 
 ### - 1.0.2
  - Project initialization
 

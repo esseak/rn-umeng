@@ -39,7 +39,6 @@ export default class MobclickAgent{
     }
 
     static onEvent(eventId,dataMap = undefined,counter = undefined){
-        console.log("onEvent"+ dataMap);
 
         if (counter !== undefined) {
             counter = counter + '';
@@ -57,12 +56,22 @@ export default class MobclickAgent{
 
     //android
     static openActivityDurationTrack(value){
-
+        umengClient.openActivityDurationTrack(value);
     }
 
-    static getDeviceInfo(){
-        umengClient.getDeviceInfo();
+    //android
+    static onResume(){
+        umengClient.onResume();
     }
 
+    //android
+    static onPause(){
+        umengClient.onPause();
+    }
 
+    static getDeviceInfo(cb){
+        umengClient.getDeviceInfo(function (infoStr) {
+            cb(infoStr);
+        });
+    }
 }
