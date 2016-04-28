@@ -15,7 +15,13 @@ $ rnpm link rn-umeng
 $ npm install --save rn-umeng
 ```
 
-#### Add Gradle Module Manualy
+#### Add Gradle Module Manually
+
+Module Source:
+
+```bash
+$PROJECT_DIR/node_modules/rn-umeng/android
+```
 
 ![image](https://raw.githubusercontent.com/esseak/rn-umeng/master/screenshots/screenshot0.png)
 
