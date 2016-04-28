@@ -21,25 +21,21 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(setCrashReportEnabled:(BOOL)value)
 {
-    NSLog(@"setCrashReportEnabled");
     [MobClick setCrashReportEnabled:value];
 }
 
 RCT_EXPORT_METHOD(enableEncrypt:(BOOL)value)
 {
-    NSLog(@"setEncryptEnabled");
     [MobClick setEncryptEnabled:value];
 }
 
 RCT_EXPORT_METHOD(startWithAppkey:(NSString *)appkey)
 {
-    NSLog(@"startWithAppkey");
     [MobClick startWithAppkey:appkey];
 }
 
 RCT_EXPORT_METHOD(setDebugMode:(BOOL)value)
 {
-    NSLog(@"setDebugMode");
     [MobClick setLogEnabled:value];
 }
 
@@ -51,44 +47,37 @@ RCT_EXPORT_METHOD(setDebugMode:(BOOL)value)
 
 RCT_EXPORT_METHOD(onProfileSignIn:(NSString *)puid provider:(NSString *)provider)
 {
-    NSLog(@"onProfileSignIn");
     [MobClick profileSignInWithPUID:puid provider:provider];
 }
 
 RCT_EXPORT_METHOD(onProfileSignOff)
 {
-    NSLog(@"onProfileSignIn");
     [MobClick profileSignOff];
 }
 
 RCT_EXPORT_METHOD(onPageStart:(NSString *)pageName)
 {
-    NSLog(@"onPageStart");
     [MobClick beginLogPageView:pageName];
 }
 
 RCT_EXPORT_METHOD(onPageEnd:(NSString *)pageName)
 {
-    NSLog(@"onPageEnd");
     [MobClick endLogPageView:pageName];
 }
 
 RCT_EXPORT_METHOD(logPageView:(NSString *)pageName seconds:(int)seconds)
 {
-    NSLog(@"logPageView");
     [MobClick logPageView:pageName seconds:seconds];
 
 }
 
 RCT_EXPORT_METHOD(onEvent:(NSString *)eventId)
 {
-    NSLog(@"onEvent:(NSString *)eventId");
     [MobClick event:eventId];
 }
 
 RCT_EXPORT_METHOD(onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes counter:(NSString *)counter)
 {
-    NSLog(@"onEvent:%@ attributes:%@ counter:%@",eventId,attributes,counter);
     if (attributes) {
         if (counter) {
             int intCounter = counter.intValue;
@@ -101,9 +90,8 @@ RCT_EXPORT_METHOD(onEvent:(NSString *)eventId attributes:(NSDictionary *)attribu
     }
 }
 
-RCT_EXPORT_METHOD(getDeviceInfo)
+RCT_EXPORT_METHOD(getDeviceInfo:(RCTResponseSenderBlock)callback)
 {
-    NSLog(@"getDeviceInfo");
     Class cls = NSClassFromString(@"UMANUtil");
     SEL deviceIDSelector = @selector(openUDIDString);
     NSString *deviceID = nil;
@@ -113,8 +101,8 @@ RCT_EXPORT_METHOD(getDeviceInfo)
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"oid" : deviceID}
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:nil];
-    
-    NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+    NSString *strInfo = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    callback(@[strInfo]);
 }
 
 
