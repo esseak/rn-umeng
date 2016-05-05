@@ -29,9 +29,16 @@ $PROJECT_DIR/node_modules/rn-umeng/android
 
 #### Add UmengPackage
 
+In your android project```MainActivity.java```,
+add the UmengPackage.
 ```java
-ReactInstanceManager.builder() ...
-.addPackage(new UmengPackage())
+@Override
+protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+            new UmengPackage() //umeng
+    );
+}
 ```
 
 #### onResume and onPause
