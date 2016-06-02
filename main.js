@@ -1,4 +1,4 @@
-import { NativeModules } from 'react-native';
+import { NativeModules,Platform } from 'react-native';
 const umengClient = NativeModules.Umeng;
 
 export default class MobclickAgent{
@@ -13,6 +13,14 @@ export default class MobclickAgent{
 
     //iOS
     static setBackgroundTaskEnabled(value){
+    }
+
+    //ios
+    static setAppVersion(value){
+        if(Platform.OS === 'ios')
+        {
+            umengClient.setAppVersion(value);
+        }
     }
 
     static enableEncrypt(value){
