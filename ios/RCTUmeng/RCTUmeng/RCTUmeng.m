@@ -34,6 +34,11 @@ RCT_EXPORT_METHOD(startWithAppkey:(NSString *)appkey)
     [MobClick startWithAppkey:appkey];
 }
 
+RCT_EXPORT_METHOD(setAppVersion:(NSString*)version)
+{
+    [MobClick setAppVersion:version];
+}
+
 RCT_EXPORT_METHOD(setDebugMode:(BOOL)value)
 {
     [MobClick setLogEnabled:value];

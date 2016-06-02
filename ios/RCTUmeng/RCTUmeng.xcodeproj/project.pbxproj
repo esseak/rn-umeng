@@ -230,7 +230,7 @@
 		27B75ABA1CABBFF8003925AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = " /Users/mike/Desktop/CMReact-native/Pods/Headers/Public/React";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../react-native/React/**";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTUmeng/UMAnalytics_Sdk",
@@ -244,7 +244,7 @@
 		27B75ABB1CABBFF8003925AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = " /Users/mike/Desktop/CMReact-native/Pods/Headers/Public/React";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../react-native/React/**";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTUmeng/UMAnalytics_Sdk",
