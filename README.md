@@ -56,6 +56,7 @@ The api mapping below
 React Native Side        | iOS Side           | Android Side   
 --------------------------|---------------------|-----------------------
 startWithAppkey(string)   | startWithAppkey(NSString)   | AnalyticsConfig.setAppkey(String appkey)   
+setAppVersion(string)     | setAppVersion(string)       | Not need to set it
 setDebugMode(bool)        | setLogEnabled(BOOL)         | MobclickAgent.setDebugMode( true )  
 enableEncrypt(boole)      | setEncryptEnabled(BOOL)          | AnalyticsConfig.enableEncrypt(boolean enable)   
 setCrashReportEnabled(boole)      | setCrashReportEnabled(BOOL)           | MobclickAgent.setCatchUncaughtExceptions(false)
