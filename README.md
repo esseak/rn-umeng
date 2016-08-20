@@ -25,7 +25,7 @@ $PROJECT_DIR/node_modules/rn-umeng/android
 ```
 ![image](https://raw.githubusercontent.com/cbcye/rn-umeng/master/screenshots/Import%20Gradle%20Project.png)
 
-3. Add app dependencies
+3.Add app dependencies
 ![image](https://raw.githubusercontent.com/cbcye/rn-umeng/master/screenshots/Add%20app%20dependencies.png)
 
 
