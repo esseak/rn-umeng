@@ -55,7 +55,8 @@ The api mapping below
 
 React Native Side        | iOS Side           | Android Side   
 --------------------------|---------------------|-----------------------
-startWithAppkey(string)   | startWithAppkey(NSString)   | AnalyticsConfig.setAppkey(String appkey)   
+startWithAppkey(string)   | startWithAppkey(NSString)   | AnalyticsConfig.setAppkey(String appkey)
+startWithAppkeyAndChannel(string,string)   | N/A   | UMAnalyticsConfig(Context context, String appkey, String channelId)  
 setAppVersion(string)     | setAppVersion(string)       | Not need to set it
 setDebugMode(bool)        | setLogEnabled(BOOL)         | MobclickAgent.setDebugMode( true )  
 enableEncrypt(boole)      | setEncryptEnabled(BOOL)          | AnalyticsConfig.enableEncrypt(boolean enable)   
@@ -86,12 +87,16 @@ MobclickAgent.onEvent("testEvent");
 
 # Changelog
 
+### - 1.0.4
+
+ - add Android channel set
+
 ### - 1.0.3
 
  - add Android lib (but Manually,rnpm link not works,fix later)
  - update readme.md
 
- 
+
 ### - 1.0.2
  - Project initialization
 

@@ -11,6 +11,11 @@ export default class MobclickAgent{
         umengClient.startWithAppkey(value);
     }
 
+    //android
+    static startWithAppkeyAndChannel(value,channel){
+        umengClient.startWithAppkeyAndChannel(value,channel);
+    }
+
     //iOS
     static setBackgroundTaskEnabled(value){
     }

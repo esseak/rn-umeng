@@ -45,6 +45,15 @@ public class UmengModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void startWithAppkeyAndChannel(String value,String channel){
+        if (!startedWithAppkey){
+            AnalyticsConfig.setAppkey(context,value);
+            AnalyticsConfig.setChannel(channel);
+            startedWithAppkey = true;
+        }
+    }
+
+    @ReactMethod
     public void setCrashReportEnabled(Boolean value){
         MobclickAgent.setCatchUncaughtExceptions(value);
     }
