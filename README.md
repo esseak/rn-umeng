@@ -19,21 +19,19 @@ $ npm install --save rn-umeng
 1.Right click app in Android project, Choose Open Module Setting, Click Add button and then Click Import Gradle Project in New Module window.
 
 2.Navigator to the Module Source, type the name as " react_native_ument "
+Module Path:
 ```bash
 $PROJECT_DIR/node_modules/rn-umeng/android
 ```
 ![image](https://raw.githubusercontent.com/cbcye/rn-umeng/master/screenshots/Import%20Gradle%20Project.png)
 
-Module Source:
-
-```bash
-$PROJECT_DIR/node_modules/rn-umeng/android
-```
-![image](https://raw.githubusercontent.com/esseak/rn-umeng/master/screenshots/Add%20app%20dependencies.png)
+3. Add app dependencies
+![image](https://raw.githubusercontent.com/cbcye/rn-umeng/master/screenshots/Add%20app%20dependencies.png)
 
 
 #### Add UmengPackage
 The following steps is working in RN 0.31, other version just make reference.
+
 Add following code in the MainApplication
 ```java
 import in.esseak.react_native_umeng.UmengPackage; //add this
