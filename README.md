@@ -87,6 +87,10 @@ MobclickAgent.onEvent("testEvent");
 
 # Changelog
 
+### - 1.0.5
+
+ - fix error in LazyReactPackage
+
 ### - 1.0.4
 
  - add Android channel set
