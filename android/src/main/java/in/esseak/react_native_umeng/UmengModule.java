@@ -101,7 +101,7 @@ public class UmengModule extends ReactContextBaseJavaModule {
         }
 
         if (map != null&&counter != null){
-            MobclickAgent.onEventValue(context,eventId,map,Integer.parseInt(counter,0));
+            MobclickAgent.onEventValue(context,eventId,map,Integer.parseInt(counter));
         }else if(map!=null){
             MobclickAgent.onEvent(context,eventId,map);
         }else{
