@@ -87,6 +87,10 @@ MobclickAgent.onEvent("testEvent");
 
 # Changelog
 
+
+### - 1.0.6
+ - support RN 0.40
+
 ### - 1.0.5
 
  - fix error in LazyReactPackage
@@ -106,3 +110,5 @@ MobclickAgent.onEvent("testEvent");
 
 # License
 MIT
+
+
