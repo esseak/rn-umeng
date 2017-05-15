@@ -76,11 +76,6 @@ RCT_EXPORT_METHOD(logPageView:(NSString *)pageName seconds:(int)seconds)
 
 }
 
-RCT_EXPORT_METHOD(onEvent:(NSString *)eventId)
-{
-    [MobClick event:eventId];
-}
-
 RCT_EXPORT_METHOD(onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes counter:(NSString *)counter)
 {
     if (attributes) {
