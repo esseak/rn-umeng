@@ -4,10 +4,25 @@ A Umeng lib for React Native
 
 # iOS Install
 
-```bash
-$ npm install --save rn-umeng
-$ rnpm link rn-umeng
+在 `package.json` 里添加:  
+
 ```
+"rn-umeng": "git+https://github.com/RnTouna/rn-umeng.git"
+```
+
+然后执行命令
+
+```bash
+yarn install (或 npm install)
+react-native link rn-umeng
+```
+
+在工程target的 `Build Phases->Link Binary with Libraries` 中加入
+`CoreTelephony.framework libz.tbd libsqlite3.tbd`
+
+在 `Build Settings->Search Paths->Framework Search Paths` 中加入路径 `$(SRCROOT)/../node_modules/rn-umeng/ios/RCTUmeng/RCTUmeng/UMAnalytics_Sdk`
+
+在 `Build Settings->Link->Other Linker Flags` 中加入 `-framework "UMMobClick"`
 
 # Android Install (Manual)
 
