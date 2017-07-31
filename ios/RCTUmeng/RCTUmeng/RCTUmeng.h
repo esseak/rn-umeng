@@ -2,8 +2,8 @@
 //  RCTUmeng.h
 //  RCTUmeng
 //
-//  Created by Mike on 16/3/30.
-//  Copyright © 2016年 hyz. All rights reserved.
+//  Created by aevit on 2017/7/26.
+//  Copyright © 2017年 aevit. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -18,3 +18,4 @@
 - (void) setDebugMode:(BOOL)value;
 - (void) onEvent:(NSString *)eventId attributes:(NSDictionary *)attributes counter:(NSString *)counter;
 @end
+
