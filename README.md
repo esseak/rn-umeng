@@ -31,37 +31,57 @@ $ npm install --save rn-umeng
 ```
 
 #### Add Gradle Module Manually
+1.Right click app in Android project, Choose Open Module Setting, Click Add button and then Click Import Gradle Project in New Module window.
 
-Module Source:
-
+2.Navigator to the Module Source, type the name as " react_native_ument "
+Module Path:
 ```bash
 $PROJECT_DIR/node_modules/rn-umeng/android
 ```
+![image](https://raw.githubusercontent.com/cbcye/rn-umeng/master/screenshots/Import%20Gradle%20Project.png)
 
-![image](https://raw.githubusercontent.com/esseak/rn-umeng/master/screenshots/screenshot0.png)
+3.Add app dependencies
+![image](https://raw.githubusercontent.com/cbcye/rn-umeng/master/screenshots/Add%20app%20dependencies.png)
 
-![image](https://raw.githubusercontent.com/esseak/rn-umeng/master/screenshots/screenshot1.png)
 
 #### Add UmengPackage
+The following steps is working in RN 0.31, other version just make reference.
 
+Add following code in the MainApplication
 ```java
-ReactInstanceManager.builder() ...
-.addPackage(new UmengPackage())
+import in.esseak.react_native_umeng.UmengPackage; //add this
+
+@Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(
+                    new MainReactPackage(),
+                    new UmengPackage() //add this
+            );
+        }
 ```
 
 #### onResume and onPause
+Add following code in the MainActivity
 ```java
-@Override
-protected void onResume() {
-	super.onResume();
-	MobclickAgent.onResume(this);
+import com.umeng.analytics.MobclickAgent;
+
+public class MainActivity extends ReactActivity {
+ ...
+//start add code 
+            @Override
+        protected void onResume() {
+            super.onResume();
+            MobclickAgent.onResume(this);
+        }
+
+        @Override
+        protected void onPause() {
+            super.onPause();
+            MobclickAgent.onPause(this);
+        }
+//end add code 
 }
 
-@Override
-protected void onPause() {
-	super.onPause();
-	MobclickAgent.onPause(this);
-}
 ```
 
 # Usage
